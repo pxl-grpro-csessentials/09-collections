@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnelsteAtleet", "SnelsteAtl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimonSays", "SimonSays\SimonSays.csproj", "{BA6DB2DD-F74D-4D22-9384-1BD57A441D08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci", "Fibonacci\Fibonacci.csproj", "{563809C9-04A8-45D8-A492-5DEB16D62E93}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BroodjesBar", "BroodjesBar\BroodjesBar.csproj", "{F9540AF7-FDFC-4A3D-9DA9-35672E1CB067}"
 EndProject
 Global
@@ -23,6 +25,10 @@ Global
 		{BA6DB2DD-F74D-4D22-9384-1BD57A441D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA6DB2DD-F74D-4D22-9384-1BD57A441D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA6DB2DD-F74D-4D22-9384-1BD57A441D08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{563809C9-04A8-45D8-A492-5DEB16D62E93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{563809C9-04A8-45D8-A492-5DEB16D62E93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{563809C9-04A8-45D8-A492-5DEB16D62E93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{563809C9-04A8-45D8-A492-5DEB16D62E93}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F9540AF7-FDFC-4A3D-9DA9-35672E1CB067}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F9540AF7-FDFC-4A3D-9DA9-35672E1CB067}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9540AF7-FDFC-4A3D-9DA9-35672E1CB067}.Release|Any CPU.ActiveCfg = Release|Any CPU
