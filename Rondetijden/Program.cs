@@ -1,6 +1,6 @@
-﻿using SnelsteAtleet.Models;
+﻿using Rondetijden.Models;
 
-namespace SnelsteAtleet
+namespace Rondetijden
 {
     internal class Program
     {
