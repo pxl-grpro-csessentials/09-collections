@@ -6,43 +6,80 @@ namespace Rondetijden
     {
         static void Main(string[] args)
         {
-            string name = "";
+            Atlete[] atletes;
+            byte index = 0;
+            string name;
             byte time = 0;
-            string fastestName = "";
-            int fastestTime = int.MaxValue;
-            int hours;
-            int minutes;
-            int seconds;
-            List<Atlete> atletes = new List<Atlete>();
+            bool stopApplication;
+            int numberOfParticipants;
 
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("Snelste atleet");
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Rondetijden");
             do
             {
-                Console.WriteLine();
-                Console.Write("Naam atleet: ");
-                name = Console.ReadLine();
-                if (name != "STOP")
+                Console.Write("Geef aantal deelnemers: ");
+            } while (!int.TryParse(Console.ReadLine(), out numberOfParticipants));
+
+            atletes = new Atlete[numberOfParticipants];
+
+            stopApplication = false;
+
+            for (int i = 0; i < numberOfParticipants && !stopApplication; i++)
+            {
+                do
+                {
+                    Console.WriteLine();
+                    Console.Write($"Geef naam atleet {index + 1}: ");
+                    name = Console.ReadLine();
+                    if (string.Equals(name, "STOP", StringComparison.OrdinalIgnoreCase))
+                    {
+                        Console.Write("Bent u zeker dat u wil stoppen (J/N)? ");
+                        stopApplication = Console.ReadLine().ToUpper() == "J";
+                    }
+                } while (!stopApplication && string.Equals(name, "STOP", StringComparison.OrdinalIgnoreCase));
+
+                if (!stopApplication)
                 {
                     do
                     {
-                        Console.Write("Looptijd: ");
-                    } while (!byte.TryParse(Console.ReadLine(), out time));
-                    if (time != 0)
+                        try
+                        {
+                            do
+                            {
+                                Console.Write($"Geef rondetijd atleet {index + 1}: ");
+                            } while (!byte.TryParse(Console.ReadLine(), out time));
+                            if (time == 0)
+                            {
+                                Console.Write("Bent u zeker dat u wil stoppen (J/N)? ");
+                                stopApplication = Console.ReadLine().ToUpper() == "J";
+                            }
+                        }
+                        catch (OverflowException)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Getal is te groot!");
+                            Console.ResetColor();
+                        }
+                    } while (!stopApplication && time == 0);
+
+                    if (!stopApplication)
                     {
-                        atletes.Add(new Atlete() { Name = name, Time = time });
+                        atletes[index] = new Atlete();
+                        atletes[index].Name = name;
+                        atletes[index].Time = time;
+                        index++;
                     }
                 }
-            } while (name != "STOP" && time != 0);
+            }
 
-            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine();
-            Console.WriteLine("Overzicht rondetijden");
-            atletes.Sort((x, y) => x.Time.CompareTo(y.Time));
-            foreach (Atlete atlete in atletes)
+            Console.WriteLine("OVERZICHT");
+            Console.WriteLine("=========");
+            for (int i = 0; i < numberOfParticipants; i++)
             {
-                Console.WriteLine($"{atlete.Name,-10} {atlete.Time} seconden");
+                //if (_atletes[i] is not null)
+                //{
+                Console.WriteLine($"Atleet {i + 1} is {atletes[i].Name} met tijd {atletes[i].Time}.");
+                //}
             }
         }
     }
