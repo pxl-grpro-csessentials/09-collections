@@ -4,19 +4,19 @@
     {
         static void Main(string[] args)
         {
-            int[] fibonacci = new int[12];
+            int[] fibonacci = new int[100];
             fibonacci[0] = 0;
             fibonacci[1] = 1;
 
-            for (int index = 2; index < fibonacci.Length; index++)
+            for (int index = 2; index <= fibonacci.Length / 2; index++)
             {
-                int sum = fibonacci[index - 2] + fibonacci[index - 1];
-                fibonacci[index] = sum;
+                fibonacci[index] = fibonacci[index - 2] + fibonacci[index - 1];
             }
 
-            //Print
-            string result = string.Join(",", fibonacci);
-            Console.WriteLine(result);
+            foreach (int number in fibonacci)
+            {
+                Console.WriteLine(number);
+            }
         }
     }
 }
